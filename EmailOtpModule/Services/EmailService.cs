@@ -30,7 +30,7 @@ namespace EmailOtpModule.Services
             try
             {
                 string emailBody = $"{EmailConstants.YOUR_OTP}{otp}{EmailConstants.CODE_IS_VALID}";
-                
+
                 EmailSentOut(email, emailBody);
                 return true;
             }

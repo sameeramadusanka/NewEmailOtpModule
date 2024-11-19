@@ -17,7 +17,8 @@ namespace EmailOtpModule.Tests
 
         private ConsoleService CreateService(int seconds)
         {
-            return new ConsoleService(_emailService, _otpService){
+            return new ConsoleService(_emailService, _otpService)
+            {
                 _currentOtp = "123456", // Mock the global variable
                 _otpExpiryTime = DateTime.Now.AddSeconds(seconds) // Ensure OTP is not expired
             };
@@ -29,16 +30,16 @@ namespace EmailOtpModule.Tests
         {
             //Arrange
             string userEmail = "sameera@test.com";
-            
+
             var input = new StringReader(userEmail);
             Console.SetIn(input);
             A.CallTo(() => _emailService.ValidateUserEmail(userEmail)).Returns(false);
-            
-            var service =  CreateService(10);
+
+            var service = CreateService(10);
 
             //Act
             StatusEnum status = service.ProcessEmailAndSendOtp();
-            
+
             //Assert
             Assert.Equal(StatusEnum.STATUS_EMAIL_INVALID, status);
         }
@@ -55,12 +56,12 @@ namespace EmailOtpModule.Tests
             A.CallTo(() => _emailService.ValidateUserEmail(userEmail)).Returns(true);
             A.CallTo(() => _otpService.GenerateOtp()).Returns(otp);
             A.CallTo(() => _emailService.SendEmail(userEmail, otp)).Returns(false);
-            
-            var service =  CreateService(10);
+
+            var service = CreateService(10);
 
             //Act
             StatusEnum status = service.ProcessEmailAndSendOtp();
-            
+
             //Assert
             Assert.Equal(StatusEnum.STATUS_EMAIL_FAIL, status);
         }
@@ -77,12 +78,12 @@ namespace EmailOtpModule.Tests
             A.CallTo(() => _emailService.ValidateUserEmail(userEmail)).Returns(true);
             A.CallTo(() => _otpService.GenerateOtp()).Returns(otp);
             A.CallTo(() => _emailService.SendEmail(userEmail, otp)).Returns(true);
-            
-            var service =  CreateService(10);
+
+            var service = CreateService(10);
 
             //Act
             StatusEnum status = service.ProcessEmailAndSendOtp();
-            
+
             //Assert
             Assert.Equal(StatusEnum.STATUS_EMAIL_OK, status);
         }
@@ -108,12 +109,12 @@ namespace EmailOtpModule.Tests
 
             var input = new StringReader(userInput);
             Console.SetIn(input);
-            
-            var service =  CreateService(10);
+
+            var service = CreateService(10);
 
             //Act
             StatusEnum status = service.ProcessAndValidateOtp();
-            
+
             //Assert
             Assert.Equal(StatusEnum.STATUS_OTP_FAIL, status);
         }
@@ -122,12 +123,12 @@ namespace EmailOtpModule.Tests
         public void Test_ConsoleService_ProcessAndValidateOtp_Timeout()
         {
             //Arrange
-            
-            var service =  CreateService(-10);
+
+            var service = CreateService(-10);
 
             //Act
             StatusEnum status = service.ProcessAndValidateOtp();
-            
+
             //Assert
             Assert.Equal(StatusEnum.STATUS_OTP_TIMEOUT, status);
         }
@@ -140,12 +141,12 @@ namespace EmailOtpModule.Tests
 
             var input = new StringReader(otp1);
             Console.SetIn(input);
-            
-            var service =  CreateService(10);
+
+            var service = CreateService(10);
 
             //Act
             StatusEnum status = service.ProcessAndValidateOtp();
-            
+
             //Assert
             Assert.Equal(StatusEnum.STATUS_OTP_OK, status);
         }
