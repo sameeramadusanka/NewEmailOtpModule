@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailOtpModule", "EmailOtpModule\EmailOtpModule.csproj", "{DF3A8AD7-A5D6-4D3F-BC09-7081251C3A4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailOtpModule.Tests", "EmailOtpModule.Tests\EmailOtpModule.Tests.csproj", "{1ABBBAC7-FE7C-4A7F-8C4E-6E4DCDD505BD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF3A8AD7-A5D6-4D3F-BC09-7081251C3A4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF3A8AD7-A5D6-4D3F-BC09-7081251C3A4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF3A8AD7-A5D6-4D3F-BC09-7081251C3A4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF3A8AD7-A5D6-4D3F-BC09-7081251C3A4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1ABBBAC7-FE7C-4A7F-8C4E-6E4DCDD505BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ABBBAC7-FE7C-4A7F-8C4E-6E4DCDD505BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ABBBAC7-FE7C-4A7F-8C4E-6E4DCDD505BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ABBBAC7-FE7C-4A7F-8C4E-6E4DCDD505BD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
