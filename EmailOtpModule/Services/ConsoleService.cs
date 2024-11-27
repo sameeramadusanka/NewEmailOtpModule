@@ -34,10 +34,8 @@ namespace EmailOtpModule.Services
             Console.WriteLine(otpStatusMessage);
             return;
         }
-
-
-
-
+        
+        
         public StatusEnum ProcessEmailAndSendOtp()
         {
             //call user email input
